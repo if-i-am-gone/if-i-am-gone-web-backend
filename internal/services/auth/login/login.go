@@ -1,17 +1,24 @@
 package login
 
-// Private visibility
-var test1 = "private variable"
+import (
+	"fmt"
+	"net/http"
 
-// Public visibility
-var Test2 = "public variable"
+	"github.com/gin-gonic/gin"
+	"github.com/ididie/ifidie_backend/internal/database/pg"
+)
 
-// Private visiblity
-func greet() string {
-	return "hello"
-}
+func Login(c *gin.Context) {
 
-// Public visibility
-func Greet2() string {
-	return "hello world"
+	user, err := pg.PgClient.GetUser(c, 1)
+
+	if err != nil {
+		fmt.Printf(err.Error())
+		c.JSON(http.StatusNotFound, gin.H{"error": "user not found"})
+		return
+	}
+	fmt.Printf("user found: %s", user.FirstName)
+
+	c.JSON(http.StatusOK, gin.H{"data": user})
+
 }
