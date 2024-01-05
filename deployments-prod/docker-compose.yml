@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  ifidie-api:
+    container_name: ifidie-api
+    build:
+      context: "../"
+      dockerfile: deployments-prod/api/Dockerfile
+    restart: always
+    ports:
+      - '5000:8080'
+    volumes:
+      - api:/app
+
+  ifidie-pg:
+    container_name: ifidie-pg
+    build:
+      context: "./postgres"
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - POSTGRES_DB=IFIDIE
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '6000:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  api:
+    driver: local
+  db:
+    driver: local
