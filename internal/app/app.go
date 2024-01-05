@@ -3,6 +3,7 @@ package app
 import (
 	"context"
 	"fmt"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/ididie/ifidie_backend/internal/database/pg"
@@ -28,14 +29,22 @@ func Run() error {
 }
 
 func initializeViper() error {
-	viper.SetConfigName("config")
-	viper.SetConfigType("yaml")
-	viper.AddConfigPath(".")
+	CONFIG_FILE_NAME, configFileNameExists := os.LookupEnv("CONFIG_FILE_NAME")
+	CONFIG_FILE_TYPE, configFileTypeExists := os.LookupEnv("CONFIG_FILE_TYPE")
+	CONFIG_FILE_PATH, configFilePathExists := os.LookupEnv("CONFIG_FILE_PATH")
+
+	if !configFileNameExists || !configFileTypeExists || !configFilePathExists {
+		return fmt.Errorf("error while reading env variables about config file")
+	}
+
+	viper.SetConfigName(CONFIG_FILE_NAME)
+	viper.SetConfigType(CONFIG_FILE_TYPE)
+	viper.AddConfigPath(CONFIG_FILE_PATH)
 
 	err := viper.ReadInConfig()
 
 	if err != nil {
-		return fmt.Errorf("Error while reading config file: %w", err)
+		return fmt.Errorf("error while reading config file: %w", err)
 	}
 
 	return nil

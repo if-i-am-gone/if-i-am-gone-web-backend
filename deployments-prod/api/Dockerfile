@@ -6,4 +6,8 @@ COPY . /app
 
 RUN go mod download
 
+RUN go mod tidy
+
+RUN go mod verify
+
 ENTRYPOINT go run ./cmd/app/main.go

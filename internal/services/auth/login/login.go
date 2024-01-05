@@ -13,7 +13,7 @@ func Login(c *gin.Context) {
 	user, err := pg.PgClient.GetUser(c, 1)
 
 	if err != nil {
-		fmt.Printf(err.Error())
+		fmt.Printf("err: %s", err.Error())
 		c.JSON(http.StatusNotFound, gin.H{"error": "user not found"})
 		return
 	}
