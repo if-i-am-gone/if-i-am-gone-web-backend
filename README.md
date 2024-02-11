@@ -17,7 +17,7 @@ api: # config parameters for api server
   port: 8080
 
 postgres: # config parameters for postgres database
-  host: ifidie-dev-pg # dev name
+  host: if-i-am-gone-web-backend-pg--dev # dev name
   port: 5432
   db_name: IFIDIE
   user: xxx # confidential
@@ -32,7 +32,7 @@ api: # config parameters for api server
   port: 8080
 
 postgres: # config parameters for postgres database
-  host: ifidie-prod-pg # prod name
+  host: if-i-am-gone-web-backend-pg--prod # prod name
   port: 5432
   db_name: IFIDIE
   user: xxx # confidential
