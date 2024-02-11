@@ -1,7 +1,7 @@
 version: '3.8'
 services:
-  ifidie-prod-api:
-    container_name: ifidie-prod-api
+  if-i-am-gone-web-backend-api--prod:
+    container_name: if-i-am-gone-web-backend-api--prod
     build:
       context: "../"
       dockerfile: deployments-prod/api/Dockerfile
@@ -12,13 +12,13 @@ services:
     ports:
       - '5500:8080'
 
-  ifidie-prod-pg:
-    container_name: ifidie-prod-pg
+  if-i-am-gone-web-backend-pg--prod:
+    container_name: if-i-am-gone-web-backend-pg--prod
     build:
       context: "./postgres"
       dockerfile: Dockerfile
     environment:
-      - POSTGRES_DB=IFIDIE
+      - POSTGRES_DB=IFIAMGONE
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:

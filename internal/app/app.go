@@ -6,8 +6,8 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ididie/ifidie_backend/internal/database/pg"
-	"github.com/ididie/ifidie_backend/internal/services/auth/login"
+	"github.com/if-i-am-gone/if-i-am-gone-web-backend/internal/database/pg"
+	"github.com/if-i-am-gone/if-i-am-gone-web-backend/internal/services/auth/login"
 
 	"github.com/spf13/viper"
 )

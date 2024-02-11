@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/ididie/ifidie_backend/internal/database/pg"
+	"github.com/if-i-am-gone/if-i-am-gone-web-backend/internal/database/pg"
 )
 
 func Login(c *gin.Context) {

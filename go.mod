@@ -1,4 +1,4 @@
-module github.com/ididie/ifidie_backend
+module github.com/if-i-am-gone/if-i-am-gone-web-backend
 
 go 1.21.5
 

@@ -1,7 +1,7 @@
 version: '3.8'
 services:
-  ifidie-dev-api:
-    container_name: ifidie-dev-api
+  if-i-am-gone-web-backend-api--dev:
+    container_name: if-i-am-gone-web-backend-api--dev
     build:
       context: "../"
       dockerfile: deployments-dev/api/Dockerfile
@@ -12,15 +12,15 @@ services:
     ports:
       - '5501:8080'
     volumes:
-      - ../:/go/src/ifidie_backend
+      - ../:/go/src/if-i-am-gone-web-backend
 
-  ifidie-dev-pg:
-    container_name: ifidie-dev-pg
+  if-i-am-gone-web-backend-pg--dev:
+    container_name: if-i-am-gone-web-backend-pg--dev
     build:
       context: "./postgres"
       dockerfile: Dockerfile
     environment:
-      - POSTGRES_DB=IFIDIE
+      - POSTGRES_DB=IFIAMGONE
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:

@@ -1,6 +1,6 @@
-# ifidie_backend
+# if-i-am-gone-web-backend
 
-Backend part of the **ifidie** project
+Backend part of the **if-i-am-gone** project
 
 ## Checklist before start:
 

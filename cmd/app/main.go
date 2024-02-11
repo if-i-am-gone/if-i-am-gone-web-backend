@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/ididie/ifidie_backend/internal/app"
+	"github.com/if-i-am-gone/if-i-am-gone-web-backend/internal/app"
 )
 
 func main() {

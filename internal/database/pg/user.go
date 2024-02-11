@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/ididie/ifidie_backend/internal/model"
+	"github.com/if-i-am-gone/if-i-am-gone-web-backend/internal/model"
 	"github.com/jackc/pgx/v5"
 )
 
