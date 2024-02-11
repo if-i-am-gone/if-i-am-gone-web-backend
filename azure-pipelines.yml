@@ -31,10 +31,7 @@ stages:
       inputs:
         Contents: '$(caCertificate.secureFilePath)'
         TargetFolder: '$(Build.SourcesDirectory)' 
-    - task: Docker@2
-      displayName: Build an image
+    - task: DockerCompose@0
+      displayName: Build and run docker compose
       inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/deployments-prod/api/Dockerfile'
-        tags: |
-          $(tag)
+        dockerComposeFile: '$(Build.SourcesDirectory)/deployments-prod/docker-compose.yml'
