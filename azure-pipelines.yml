@@ -38,3 +38,4 @@ stages:
       displayName: Build and run docker compose
       inputs:
         dockerComposeFile: '$(Build.SourcesDirectory)/deployments-prod/docker-compose.yml'
+        action: 'Run a Docker Compose command'
