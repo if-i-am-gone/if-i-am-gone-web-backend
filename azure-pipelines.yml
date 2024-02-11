@@ -39,3 +39,8 @@ stages:
       inputs:
         dockerComposeFile: '$(Build.SourcesDirectory)/deployments-prod/docker-compose.yml'
         action: 'Build services'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
