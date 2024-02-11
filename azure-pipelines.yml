@@ -39,3 +39,4 @@ stages:
       inputs:
         dockerComposeFile: '$(Build.SourcesDirectory)/deployments-prod/docker-compose.yml'
         action: 'Run a Docker Compose command'
+        dockerComposeCommand: 'up'
