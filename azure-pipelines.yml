@@ -21,6 +21,7 @@ stages:
       name: 'Default'
       vmImage: ubuntu-latest
     steps:
+
     - task: DownloadSecureFile@1
       displayName: Download config-prod.yaml
       name: configProd
@@ -31,6 +32,8 @@ stages:
       inputs:
         Contents: '$(caCertificate.secureFilePath)'
         TargetFolder: '$(Build.SourcesDirectory)' 
+    - task: DockerInstaller@0
+      displayName: Install docker
     - task: DockerCompose@0
       displayName: Build and run docker compose
       inputs:
