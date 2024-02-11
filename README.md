@@ -9,17 +9,32 @@ Config files path (relative to the root of the project - this readme):
 - /config-dev.yaml
 - /config-prod.yaml
 
-Example config file:
+**DEV** config file:
 
 ```yaml
 api: # config parameters for api server
-  hostname: example.ru
+  hostname: 127.0.0.1
   port: 8080
 
 postgres: # config parameters for postgres database
-  host: test-pg
+  host: ifidie-dev-pg # dev name
   port: 5432
-  db_name: TEST
-  user: test
-  password: test
+  db_name: IFIDIE
+  user: xxx # confidential
+  password: xxx # confidential
+```
+
+**PROD** config file:
+
+```yaml
+api: # config parameters for api server
+  hostname: 127.0.0.1
+  port: 8080
+
+postgres: # config parameters for postgres database
+  host: ifidie-prod-pg # prod name
+  port: 5432
+  db_name: IFIDIE
+  user: xxx # confidential
+  password: xxx # confidential
 ```
