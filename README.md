@@ -19,7 +19,7 @@ api: # config parameters for api server
 postgres: # config parameters for postgres database
   host: if-i-am-gone-web-backend-pg--dev # dev name
   port: 5432
-  db_name: IFIDIE
+  db_name: IFIAMGONE
   user: xxx # confidential
   password: xxx # confidential
 ```
@@ -34,7 +34,7 @@ api: # config parameters for api server
 postgres: # config parameters for postgres database
   host: if-i-am-gone-web-backend-pg--prod # prod name
   port: 5432
-  db_name: IFIDIE
+  db_name: IFIAMGONE
   user: xxx # confidential
   password: xxx # confidential
 ```
