@@ -2,44 +2,44 @@
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
-trigger:
-- main
+# trigger:
+# - main
 
-resources:
-- repo: self
+# resources:
+# - repo: self
 
-variables:
-  tag: '$(Build.BuildId)'
+# variables:
+#   tag: '$(Build.BuildId)'
 
-stages:
-- stage: Build
-  displayName: Build image
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      name: 'Default'
-      vmImage: ubuntu-latest
-    steps:
-    - task: DownloadSecureFile@1
-      displayName: Download config-prod.yaml
-      name: configProd
-      inputs:
-        secureFile: 'config-prod.yaml'
-    - task: CopyFiles@2
-      displayName: Copy config-prod.yaml to source directory
-      inputs:
-        Contents: '$(caCertificate.secureFilePath)'
-        TargetFolder: '$(Build.SourcesDirectory)' 
-    - task: DockerInstaller@0
-      displayName: Install docker
-    - task: DockerCompose@0
-      displayName: Build and run docker compose
-      inputs:
-        dockerComposeFile: '$(Build.SourcesDirectory)/deployments-prod/docker-compose.yml'
-        action: 'Build services'
-    - task: PublishBuildArtifacts@1
-      inputs:
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
-        publishLocation: 'Container'
+# stages:
+# - stage: Build
+#   displayName: Build image
+#   jobs:
+#   - job: Build
+#     displayName: Build
+#     pool:
+#       name: 'Default'
+#       vmImage: ubuntu-latest
+#     steps:
+#     - task: DownloadSecureFile@1
+#       displayName: Download config-prod.yaml
+#       name: configProd
+#       inputs:
+#         secureFile: 'config-prod.yaml'
+#     - task: CopyFiles@2
+#       displayName: Copy config-prod.yaml to source directory
+#       inputs:
+#         Contents: '$(caCertificate.secureFilePath)'
+#         TargetFolder: '$(Build.SourcesDirectory)'
+#     - task: DockerInstaller@0
+#       displayName: Install docker
+#     - task: DockerCompose@0
+#       displayName: Build and run docker compose
+#       inputs:
+#         dockerComposeFile: '$(Build.SourcesDirectory)/deployments-prod/docker-compose.yml'
+#         action: 'Build services'
+#     - task: PublishBuildArtifacts@1
+#       inputs:
+#         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+#         ArtifactName: 'drop'
+#         publishLocation: 'Container'
